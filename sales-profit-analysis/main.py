@@ -64,3 +64,70 @@ df['Postal Code'] = df['Postal Code'].fillna(
 print("Data Cleaning Completed")
 
 
+
+# =========================
+# FEATURE ENGINEERING
+# =========================
+ 
+print("\n========== FEATURE ENGINEERING ==========\n")
+ 
+# 1. Order Month
+df['Order Month'] = df['Order Date'].dt.month_name()
+ 
+# 2. Order Year
+df['Order Year'] = df['Order Date'].dt.year
+ 
+# 3. Profit Margin
+df['Profit Margin'] = (
+    df['Profit'] / df['Sales']
+) * 100
+ 
+# 4. Sales Category
+df['Sales Category'] = np.where(
+    df['Sales'] > 500,
+    'High Sales',
+    'Low Sales'
+)
+ 
+print(df[['Order Month',
+          'Order Year',
+          'Profit Margin',
+          'Sales Category']].head())
+ 
+ 
+# =====================================================
+# ANALYSIS 1 : REGION-WISE SALES
+# SUBGROUP COMPARISON
+# =====================================================
+ 
+print("\n========== ANALYSIS 1 : REGION SALES ==========\n")
+ 
+region_sales = df.groupby('Region')['Sales'].sum() \
+                 .sort_values(ascending=False)
+ 
+print(region_sales)
+ 
+ 
+# =====================================================
+# ANALYSIS 2 : CATEGORY-WISE PROFIT
+# SUBGROUP COMPARISON
+# =====================================================
+ 
+print("\n========== ANALYSIS 2 : CATEGORY PROFIT ==========\n")
+ 
+category_profit = df.groupby('Category')['Profit'].sum() \
+                    .sort_values(ascending=False)
+ 
+print(category_profit)
+ 
+ 
+# =====================================================
+# ANALYSIS 3 : CUSTOMER SEGMENT SALES
+# =====================================================
+ 
+print("\n========== ANALYSIS 3 : SEGMENT SALES ==========\n")
+ 
+segment_sales = df.groupby('Segment')['Sales'].sum()
+ 
+print(segment_sales)
+
