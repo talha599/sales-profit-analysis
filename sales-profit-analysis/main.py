@@ -131,3 +131,46 @@ segment_sales = df.groupby('Segment')['Sales'].sum()
  
 print(segment_sales)
 
+
+# =====================================================
+# ANALYSIS 4 : MONTHLY SALES TREND
+# =====================================================
+
+print("\n========== ANALYSIS 4 : MONTHLY SALES ==========\n")
+
+monthly_sales = df.groupby(
+    df['Order Date'].dt.month
+)['Sales'].sum()
+
+print(monthly_sales)
+
+
+# =====================================================
+# ANALYSIS 5 : OUTLIER ANALYSIS USING NUMPY
+# =====================================================
+
+print("\n========== ANALYSIS 5 : OUTLIER ANALYSIS ==========\n")
+
+sales_mean = np.mean(df['Sales'])
+sales_std = np.std(df['Sales'])
+
+z_scores = (
+    df['Sales'] - sales_mean
+) / sales_std
+
+outliers = df[np.abs(z_scores) > 3]
+
+print(outliers[['Sales', 'Profit']])
+
+
+# =====================================================
+# ANALYSIS 6 : RELATIONSHIP ANALYSIS
+# =====================================================
+
+print("\n========== ANALYSIS 6 : SALES & PROFIT RELATIONSHIP ==========\n")
+
+correlation = df['Sales'].corr(df['Profit'])
+
+print("Correlation Between Sales and Profit:")
+print(correlation)
+
