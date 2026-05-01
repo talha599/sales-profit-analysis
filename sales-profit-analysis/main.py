@@ -196,13 +196,6 @@ plt.show()
 
 
 
-
-
-
-
-
-
-
 # =====================================================
 # VISUALIZATION 2 : MONTHLY SALES TREND
 # =====================================================
@@ -244,11 +237,56 @@ plt.tight_layout()
  
 plt.savefig('figures/profit_distribution.png')
  
- 
- 
 plt.show()
 
 
+# =====================================================
+# VISUALIZATION 4 : SALES VS PROFIT
+# =====================================================
+
+plt.figure(figsize=(8,5))
+
+plt.scatter(
+    df['Sales'],
+    df['Profit']
+)
+
+plt.title('Sales vs Profit')
+plt.xlabel('Sales')
+plt.ylabel('Profit')
+
+plt.tight_layout()
+
+plt.savefig('figures/sales_vs_profit.png')
+
+plt.show()
+
+
+# =====================================================
+# FINAL FINDINGS
+# =====================================================
+
+print("\n========== FINAL FINDINGS ==========\n")
+
+print("""
+1. West region generated the highest sales.
+
+2. Technology category produced the highest profit.
+
+3. Consumer segment contributed the most sales.
+
+4. Sales increased during several peak months.
+
+5. Some sales transactions were identified as outliers.
+
+6. Positive relationship exists between sales and profit.
+""")
+
+# =====================================================
+# PROJECT COMPLETED
+# =====================================================
+
+print("\n========== PROJECT COMPLETED SUCCESSFULLY ==========")
 
 
 
