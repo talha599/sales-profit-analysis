@@ -196,3 +196,59 @@ plt.show()
 
 
 
+
+
+
+
+
+
+
+# =====================================================
+# VISUALIZATION 2 : MONTHLY SALES TREND
+# =====================================================
+ 
+plt.figure(figsize=(10,5))
+ 
+monthly_sales.plot(
+    kind='line',
+    marker='o'
+)
+ 
+plt.title('Monthly Sales Trend')
+plt.xlabel('Month')
+plt.ylabel('Sales')
+ 
+plt.tight_layout()
+ 
+plt.savefig('figures/monthly_sales_trend.png')
+ 
+plt.show()
+ 
+ 
+# =====================================================
+# VISUALIZATION 3 : PROFIT DISTRIBUTION
+# =====================================================
+ 
+plt.figure(figsize=(8,5))
+ 
+plt.hist(
+    df['Profit'],
+    bins=30
+)
+ 
+plt.title('Profit Distribution')
+plt.xlabel('Profit')
+plt.ylabel('Frequency')
+ 
+plt.tight_layout()
+ 
+plt.savefig('figures/profit_distribution.png')
+ 
+ 
+ 
+plt.show()
+
+
+
+
+
