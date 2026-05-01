@@ -174,3 +174,25 @@ correlation = df['Sales'].corr(df['Profit'])
 print("Correlation Between Sales and Profit:")
 print(correlation)
 
+# =====================================================
+# VISUALIZATION 1 : REGION SALES
+# =====================================================
+
+plt.figure(figsize=(8,5))
+
+region_sales.plot(kind='bar')
+
+plt.title('Total Sales by Region')
+plt.xlabel('Region')
+plt.ylabel('Sales')
+
+plt.xticks(rotation=0)
+
+plt.tight_layout()
+
+plt.savefig('figures/sales_by_region.png')
+
+plt.show()
+
+
+
